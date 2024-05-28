@@ -1,7 +1,7 @@
 module vtray
 
 // Tray is the main struct that represents the tray app.
-[heap; noinit]
+@[heap; noinit]
 pub struct Tray {
 mut:
 	instance   &VTray = unsafe { nil }
@@ -22,15 +22,17 @@ pub:
 	disabled  bool
 }
 
-[params]
+@[params]
 pub struct CreatOptions {
 	identifier string = 'VTray'
-	tooltip    string
+pub:
+	tooltip string
 }
 
 // MenuItem is a menu item that can be added to the tray.
-[params]
+@[params]
 pub struct MenuItemOptions {
+pub:
 	checked   bool
 	checkable bool
 	disabled  bool
